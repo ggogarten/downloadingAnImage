@@ -29,15 +29,30 @@ class ViewController: UIViewController {
             } else {
                 
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                var documentsDirectory:String?
+                
+                var paths:[AnyObject] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+                
+                if paths.count > 0 {
                     
-                    if let bike = UIImage(data: data!) {
-                        
-                        self.image.image = bike
-                        
-                    }
+                    documentsDirectory = paths[0] as? String
                     
-                })
+                    let savePath = documentsDirectory! + "/bike.jpg"
+                    
+                    NSFileManager.defaultManager().createFileAtPath(savePath, contents: data, attributes: nil)
+                
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                            self.image.image = UIImage(named: savePath)
+                            
+                        }
+                        
+                    )
+                
+                
+                }
+                
+                
                 
                 
             }
