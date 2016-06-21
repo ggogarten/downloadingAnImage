@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,26 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JdU-DO-JoK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JdU-DO-JoK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="3pg-l1-uYc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JdU-DO-JoK" secondAttribute="bottom" id="6FI-hG-mZV"/>
+                            <constraint firstItem="JdU-DO-JoK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="IeA-QC-T2o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JdU-DO-JoK" secondAttribute="trailing" constant="-20" id="v8r-xt-9o9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="image" destination="JdU-DO-JoK" id="Jfq-Eg-ybd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="429"/>
         </scene>
     </scenes>
 </document>
