@@ -28,11 +28,17 @@ class ViewController: UIViewController {
                 
             } else {
                 
-                if let bike = UIImage(data: data!) {
+                
+                dispatch_async(dispatch_get_main_queue(), {
                     
-                  self.image.image = bike
+                    if let bike = UIImage(data: data!) {
+                        
+                        self.image.image = bike
+                        
+                    }
                     
-                }
+                })
+                
                 
             }
             
